@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>רשימת אנשים</h2>
+  <button class="btn btn-primary" [routerLink]="['/add-person']">הוסף אדם חדש</button>
+  <table class="table table-striped mt-3">
+    <thead>
+      <tr>
+        <th>שם מלא</th>
+        <th>תעודת זהות</th>
+        <th>מייל</th>
+        <th>מספר טלפון</th>
+        <th>פעולות</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of people">
+        <td>{{ person.firstName }} {{ person.lastName }}</td>
+        <td>{{ person.identityNumber }}</td>
+        <td>{{ person.email }}</td>
+        <td>{{ person.phoneNumber }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deletePerson(person.id)">מחק</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

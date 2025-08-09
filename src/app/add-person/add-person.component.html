@@ -1,0 +1,55 @@
+<div class="container">
+  <h2>הוספת אדם חדש</h2>
+  <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstName">שם פרטי</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName">
+      <div *ngIf="personForm.get('firstName')?.invalid && personForm.get('firstName')?.touched" class="text-danger">
+        שם פרטי חובה, לפחות 2 תווים
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="lastName">שם משפחה</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName">
+      <div *ngIf="personForm.get('lastName')?.invalid && personForm.get('lastName')?.touched" class="text-danger">
+        שם משפחה חובה, לפחות 2 תווים
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="identityNumber">תעודת זהות</label>
+      <input type="text" class="form-control" id="identityNumber" formControlName="identityNumber">
+      <div *ngIf="personForm.get('identityNumber')?.invalid && personForm.get('identityNumber')?.touched" class="text-danger">
+        תעודת זהות חובה, בדיוק 9 ספרות
+      </div>
+    </div>
+
+   <div class="form-group" style="position: relative;">
+  <label for="email">מייל</label>
+  <input type="email" class="form-control" id="email" formControlName="email" (input)="onEmailInput($event)" autocomplete="off">
+
+  <div *ngIf="personForm.get('email')?.invalid && personForm.get('email')?.touched" class="text-danger">
+    מייל תקין חובה
+  </div>
+
+  <ul *ngIf="emailSuggestions.length > 0" class="list-group position-absolute" style="z-index: 1000; max-width: 300px;">
+    <li *ngFor="let suggestion of emailSuggestions" 
+        class="list-group-item list-group-item-action"
+        (click)="applySuggestion(suggestion)">
+      {{ suggestion }}
+    </li>
+  </ul>
+</div>
+
+    <div class="form-group">
+      <label for="phoneNumber">מספר טלפון</label>
+      <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+      <div *ngIf="personForm.get('phoneNumber')?.invalid && personForm.get('phoneNumber')?.touched" class="text-danger">
+        מספר טלפון חובה, בדיוק 10 ספרות
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="personForm.invalid">הוסף</button>
+  </form>
+</div>

@@ -1,6 +1,6 @@
 # PeopleManager
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.4.
+This is a client project in Angular (version 20.1.4) that uses Standalone Components for managing people. The application allows adding a new person and displaying a list of people, while communicating with an API in C#.
 
 ## Development server
 
