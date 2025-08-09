@@ -15,5 +15,5 @@
 
 
 
-   git clone 
-   cd PeopleManagementApi
+- git clone 
+- cd PeopleManagementApi
